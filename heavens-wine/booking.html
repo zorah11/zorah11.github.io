@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#410d19">
+<title>Book an Occasion | Heavens Fortified Wines</title>
+<meta name="description" content="Enquire about Heavens wines, pack sizes and personalised event branding with Blue Heavens Distributors Limited. Prepare and review your WhatsApp booking enquiry.">
+<meta name="author" content="Blue Heavens Distributors Limited">
+<meta property="og:title" content="Book an Occasion | Heavens Fortified Wines">
+<meta property="og:description" content="Enquire about Heavens wines, pack sizes and personalised event branding with Blue Heavens Distributors Limited. Prepare and review your WhatsApp booking enquiry.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zorah11.github.io/heavens-wine/booking.html">
+<meta property="og:image" content="https://zorah11.github.io/heavens-wine/assets/hero-table.webp">
+<link rel="canonical" href="https://zorah11.github.io/heavens-wine/booking.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pages.css">
+
+<script src="app.js" defer></script>
+</head>
+<body class="inner-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<a class="wordmark" href="index.html" aria-label="Heavens Fortified Wines home"><svg class="crown" viewBox="0 0 44 24" fill="currentColor" aria-hidden="true"><path d="m3 6 10 5 9-10 9 10 10-5-6 16H9L3 6Z"/></svg><span>Heavens</span><small>FORTIFIED WINES</small></a>
+<button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+<nav id="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="wines.html">Our wines</a><a href="celebrations.html">Celebrations</a><a href="booking.html" class="nav-book" aria-current="page">Book an occasion</a></nav>
+</header>
+<main id="main">
+<section class="booking booking-page section-pad" id="booking" aria-labelledby="page-title">
+<div class="booking-intro"><p class="eyebrow">BOOKINGS & ENQUIRIES</p><h1 id="page-title">Your occasion.<br><em>Let’s make<br>it Heavens.</em></h1><p>Tell us what you’re planning. We’ll help with wine, pack sizes and personalised event branding.</p><div class="phone-list"><a href="tel:+256776998578">0776 998 578</a><a href="tel:+256709724471">0709 724 471</a></div><p class="small-note">Prefer to talk? Call either number.</p><figure class="booking-photo"><img src="assets/personalise.webp" alt="Personalised branding inspiration: a wine bottle beside an invitation and ribbon" width="1536" height="1024" loading="lazy"><figcaption>YOUR NAME. YOUR DATE. YOUR CELEBRATION.</figcaption></figure></div>
+<form id="booking-form" class="booking-form">
+<div class="form-heading"><h2>Start your enquiry</h2><p>Share a few details. Review your message, then continue in WhatsApp.</p></div>
+<noscript><p class="form-status">Please enable JavaScript to prepare your enquiry, or call either number shown on this page.</p></noscript>
+<label for="customer-name">Your name</label><input id="customer-name" name="name" autocomplete="name" placeholder="How should we address you?" maxlength="100" required>
+<div class="form-row"><div><label for="occasion">Occasion</label><select id="occasion" name="occasion"><option>Wedding</option><option>Introduction</option><option>Kuhingira</option><option>Birthday</option><option>Graduation</option><option>Wine order</option><option>Other occasion</option></select></div><div><label for="event-date">Event date <span>(optional)</span></label><input id="event-date" name="date" type="date"></div></div>
+<div class="form-row"><div><label for="wine-choice">Wine</label><select id="wine-choice" name="wine"><option>Help me choose</option><option>Heavens Classic</option><option>Heavens Chocolate</option></select></div><div><label for="pack-size">Pack size</label><select id="pack-size" name="size"><option>Help me choose</option><option>750 ml</option><option>1 litre</option><option>2 litres</option><option>3 litres</option><option>5 litres</option><option>10 litres</option><option>20 litres</option></select></div></div>
+<div class="form-row"><div><label for="quantity">Number of packs <span>(optional)</span></label><input id="quantity" name="quantity" type="number" min="1" max="100000" step="1" inputmode="numeric" placeholder="e.g. 24"></div><div><label for="branding-choice">Personalised branding</label><select id="branding-choice" name="branding"><option>Let’s discuss</option><option>Yes, please</option><option>No, thank you</option></select></div></div>
+<label for="event-location">Event location <span>(optional)</span></label><input id="event-location" name="location" autocomplete="off" placeholder="Town or venue" maxlength="150">
+<label for="event-notes">Anything else? <span>(optional)</span></label><textarea id="event-notes" name="notes" rows="3" placeholder="Names for branding, colours, or a question…" maxlength="1500"></textarea>
+<label class="checkbox-label"><input id="adult-confirmation" type="checkbox" required><span>I am of legal drinking age in my location.</span></label>
+<button class="button button-gold" type="submit">Review my enquiry</button>
+<p id="form-status" class="form-status" role="status">We’ll confirm availability, pricing and arrangements with you directly. Your enquiry does not reserve a date.</p>
+<section id="booking-review" class="enquiry-review" aria-labelledby="review-title" hidden><h3 id="review-title" tabindex="-1">Your enquiry, ready to review.</h3><p>Check your details below before continuing.</p><pre id="enquiry-preview"></pre><a id="whatsapp-send" class="button button-gold" target="_blank" rel="noopener noreferrer">Continue in WhatsApp</a><button id="edit-enquiry" class="edit-enquiry" type="button">Edit my details</button><p class="form-status">WhatsApp opens only when you continue. You choose when to send the message.</p></section>
+</form></section><section class="faq section-pad" aria-labelledby="faq-title"><h2 id="faq-title">A few things<br><em>to know.</em></h2><div class="faq-list"><details><summary>What pack sizes are available?</summary><p>Our advertised range includes 750 ml bottles and 1, 2, 3, 5, 10 and 20 litre packs. Contact us to confirm packaging and availability for your chosen wine.</p></details><details><summary>Can you brand bottles for my event?</summary><p>Yes. We offer event branding for weddings, introductions, birthdays, graduation parties and Kuhingira. Contact us to discuss your design, quantities and timing.</p></details><details><summary>How do I get a price or place an order?</summary><p>Call 0776 998 578 or 0709 724 471, or prepare an enquiry on our booking page. We’ll confirm pricing and fulfilment arrangements directly with you.</p></details></div></section>
+</main>
+<footer class="site-footer">
+<a class="wordmark" href="index.html" aria-label="Heavens Fortified Wines home"><span>Heavens</span><small>FORTIFIED WINES</small></a>
+<p>Great moments deserve great wine.</p>
+<div class="footer-links"><a href="wines.html">Our wines</a><a href="celebrations.html">Celebrations</a><a href="booking.html">Book an occasion</a></div>
+<div class="footer-bottom"><span>© <span id="year">2026</span> Blue Heavens Distributors Limited</span><span>Enjoy responsibly. For adults of legal drinking age only.</span><button type="button" class="privacy-toggle" aria-expanded="false" aria-controls="privacy-note">Privacy</button></div>
+<p id="privacy-note" class="privacy-note" hidden>This site does not store your enquiry or use analytics cookies. The booking form prepares a WhatsApp message; WhatsApp opens only when you choose to continue. Its privacy policy applies when you use that service.</p>
+</footer>
+</body>
+</html>
