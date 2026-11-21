@@ -167,7 +167,7 @@
         'safari-stay':['Settle into the accommodation style you’ve chosen and enjoy a slower first evening.','Choose a guided day out or keep a little time free to enjoy the setting.','Begin the day gently, then arrange a transfer towards your next stop.']
       };
       const query = new URLSearchParams({journey:journey.id,country:journey.country});
-      detail.innerHTML = `<div class="detail-heading"><div><p class="eyebrow">${escape(journey.countryName.toUpperCase())} · ${journey.days} DAYS · SAMPLE ITINERARY</p><h1>${escape(journey.name)}</h1></div><div><p>${escape(journey.overview)}</p><button class="underlink" type="button" data-save="${journey.id}" aria-pressed="false">Save this journey</button></div></div><img class="detail-hero" src="assets/${journey.image}.webp" alt="${escape(journey.line)}" width="1536" height="1024" fetchpriority="high"><div class="detail-content"><div><p class="eyebrow">THE SHAPE OF YOUR DAYS</p><h2>A little room<br><em>for discovery.</em></h2><div class="itinerary">${journey.stops.map((stop,index) => `<details ${index===0?'open':''}><summary>Day ${index+1} · ${escape(stop)}</summary><p>${escape(dayNotes[journey.id][index])}</p></details>`).join('')}</div></div><aside class="detail-aside"><p class="eyebrow">MAKE IT YOURS</p><h3>Bring the details together.</h3><ul>${journey.includes.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><p class="small-note">This is a sample route. Final activities, prices and arrangements need confirmation with a travel operator. Match tickets aren’t included.</p><a class="button" href="plan.html?${escape(query.toString())}">Plan this journey</a></aside></div>`;
+      detail.innerHTML = `<div class="detail-heading"><div><p class="eyebrow">${escape(journey.countryName.toUpperCase())} · ${journey.days} DAYS · SAMPLE ITINERARY</p><h1>${escape(journey.name)}</h1></div><div><p>${escape(journey.overview)}</p><button class="underlink" type="button" data-save="${journey.id}" aria-pressed="false">Save this journey</button></div></div><figure class="travel-print itinerary-print"><img class="detail-hero" src="assets/${journey.image}.webp" alt="${escape(journey.line)}" width="1536" height="1024" fetchpriority="high"><figcaption>${escape(journey.name)} · ${escape(journey.countryName)}</figcaption></figure><div class="detail-content"><div><p class="eyebrow">THE SHAPE OF YOUR DAYS</p><h2>A little room<br><em>for discovery.</em></h2><div class="itinerary">${journey.stops.map((stop,index) => `<details ${index===0?'open':''}><summary>Day ${index+1} · ${escape(stop)}</summary><p>${escape(dayNotes[journey.id][index])}</p></details>`).join('')}</div></div><aside class="detail-aside"><p class="eyebrow">MAKE IT YOURS</p><h3>Bring the details together.</h3><ul>${journey.includes.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><p class="small-note">This is a sample route. Final activities, prices and arrangements need confirmation with a travel operator. Match tickets aren’t included.</p><a class="button" href="plan.html?${escape(query.toString())}">Plan this journey</a></aside></div>`;
     }
   }
 
@@ -356,3 +356,33 @@
   }
   setupMotion();
 })();
+
+function setupLionFilm() {
+  const film = document.querySelector('.lion-film');
+  if (!film || !window.matchMedia) return;
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+
+  function updatePlayback() {
+    if (motion.matches || navigator.connection?.saveData || document.visibilityState === 'hidden') {
+      film.pause();
+      if (motion.matches) film.classList.remove('has-frame');
+      return;
+    }
+    const source = portrait.matches ? film.dataset.portrait : film.dataset.wide;
+    if (film.getAttribute('src') !== source) {
+      film.classList.remove('has-frame');
+      film.src = source;
+    }
+    film.defaultPlaybackRate = 0.65;
+    film.playbackRate = 0.65;
+    film.play().catch(() => {});
+  }
+  film.addEventListener('playing', () => film.classList.add('has-frame'));
+  film.addEventListener('error', () => film.classList.remove('has-frame'));
+  portrait.addEventListener('change', updatePlayback);
+  motion.addEventListener('change', updatePlayback);
+  document.addEventListener('visibilitychange', updatePlayback);
+  updatePlayback();
+}
+setupLionFilm();
